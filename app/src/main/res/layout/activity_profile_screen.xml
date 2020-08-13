@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileScreen">
+
+    <FrameLayout
+        android:id="@+id/fl_header"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:background="@drawable/header_profile"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_pict"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/ava"
+                />
+
+            <Button
+                android:id="@+id/btn_hire"
+                android:layout_width="115dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="56dp"
+                android:background="@drawable/btn_white"
+                android:drawableLeft="@drawable/ic_hire"
+                android:paddingHorizontal="20dp"
+                android:text="Hire Me"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/tv_username_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_pict"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="5dp"
+                android:text="Reihan Bayzaky Bagus Mahdy"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_expertise_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_username_profile"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="5dp"
+                android:text="Android Developer"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="normal"
+            />
+
+            <ImageView
+                android:id="@+id/ic_birth_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_expertise_profile"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_party_1"
+            />
+
+            <TextView
+                android:id="@+id/tv_birth_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_expertise_profile"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/ic_birth_profile"
+                android:text="28 May 2002"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_summary_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="Summary"
+        android:textAlignment="textStart"
+        android:textColor="#888888"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/fl_header" />
+
+    <TextView
+        android:id="@+id/tv_content_summary_profile"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="24dp"
+        android:text="Lorem ipsum"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_summary_profile_header" />
+
+    <TextView
+        android:id="@+id/tv_skill_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Skill"
+        android:textAlignment="textStart"
+        android:textColor="#888888"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content_summary_profile" />
+
+    <TextView
+        android:id="@+id/tv_content_skill_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:text="Lorem ipsum"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_skill_profile_header" />
+
+    <TextView
+        android:id="@+id/tv_cv_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Curiculum Vitae / Portofolio"
+        android:textAlignment="textStart"
+        android:textColor="#888888"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content_skill_profile" />
+
+    <Button
+        android:id="@+id/btn_check_cv"
+        android:layout_width="148dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_primary"
+        android:paddingHorizontal="30dp"
+        android:text="Check CV"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_cv_profile_header" />
+
+    <Button
+        android:id="@+id/btn_check_portofolio"
+        android:layout_width="148dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_check_cv"
+        app:layout_constraintTop_toBottomOf="@id/tv_cv_profile_header"
+        android:text="Portofolio"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

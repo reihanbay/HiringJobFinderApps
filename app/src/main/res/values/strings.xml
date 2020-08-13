@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">JoFi</string>
+    <string name="welcome">Welcome</string>
+    <string name="sign_in_to_your_account">Sign In to your account</string>
+    <string name="input_email">Email</string>
+    <string name="input_password">Password</string>
+    <string name="forgot_pass">Forgot your password ?</string>
+    <string name="log_in">Log In</string>
+    <string name="sig_in">Sign In</string>
+    <string name="save">Save</string>
+    <string name="dont_have">Don\'t have an account ?</string>
+    <string name="have">Have an account ?</string>
+    <string name="create">Create</string>
+    <string name="input_username">Username</string>
+    <string name="create_account">Create your account now</string>
+    <string name="completed_data_form">Complete your personal data !</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="skip_pressed">Let\'s Start it</string>
+    <string name="description1">Find the workers you want or need from all the workers listed</string>
+    <string name="description2">Choose the best workers that you want to work with you</string>
+    <string name="description3">Enjoy the job you choose to achieve the best success</string>
+    <string name="title1">Register \nYour Account</string>
+    <string name="title2">Hire The Workers</string>
+    <string name="title3">Let’s Working for togetherness</string>
+</resources>
