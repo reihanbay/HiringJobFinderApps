@@ -118,11 +118,11 @@
             android:textSize="14sp"
             android:textStyle="normal"
             android:textColor="#888888"
-            android:layout_toStartOf="@id/tv_create"
+            android:layout_toStartOf="@id/tv_toLogin"
             />
 
         <TextView
-            android:id="@+id/tv_create"
+            android:id="@+id/tv_toLogin"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"

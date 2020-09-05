@@ -2,6 +2,7 @@ package com.reihan.jofi
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +13,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_on_board.*
 
-class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
+class AppIntroScreen : BaseActivity(), View.OnClickListener {
 
     val mResources = intArrayOf(R.drawable.regis, R.drawable.hire, R.drawable.work)
     lateinit var adapter: SlidingPagerAdapter
@@ -20,9 +21,12 @@ class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
     var remove = 0
     var tabCount = 0
 
+    override fun layoutId(): Int {
+        return R.layout.activity_on_board
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_on_board)
+        setContentView(layoutId())
 
 
         tabCount = mResources.size
@@ -55,12 +59,12 @@ class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 currentTab = position + 1
                 remove = position - 1
+
                 if (currentTab == tabCount) {
                     next.text = getString(R.string.start)
                 } else {
                     next.text = getString(R.string.next)
                 }
-
                 if (currentTab == 1 ){
                     skip.text = getString(R.string.skip)
                 } else {
@@ -69,6 +73,7 @@ class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun onPageSelected(position: Int) {
+
             }
 
         })
@@ -81,8 +86,8 @@ class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
             R.id.next -> {
                 if (currentTab == tabCount) {
                     next.text = getString(R.string.start)
-                    val intentLogin = Intent(this, Login ::class.java)
-                    startActivity(intentLogin)
+                    Intent<Login>(this)
+                    startActivity(start)
                     Toast.makeText(this@AppIntroScreen, getString(R.string.skip_pressed), Toast.LENGTH_SHORT).show()
                     // Proceed to Main/Home Activity of the App
                 } else {
@@ -97,8 +102,8 @@ class AppIntroScreen : AppCompatActivity(), View.OnClickListener {
                     viewPager.currentItem = remove
                 } else {
                     skip.text = getString(R.string.skip)
-                    val intentLogin = Intent(this, Login ::class.java)
-                    startActivity(intentLogin)
+                    Intent<Login>(this)
+                    startActivity(start)
                     Toast.makeText(this@AppIntroScreen, getString(R.string.skip_pressed), Toast.LENGTH_SHORT).show()
                     // Proceed to Main/Home Activity of the App
                 }

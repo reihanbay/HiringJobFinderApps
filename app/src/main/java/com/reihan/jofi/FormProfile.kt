@@ -1,40 +1,52 @@
 package com.reihan.jofi
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import kotlinx.android.synthetic.main.activity_form_profile.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class FormProfile : AppCompatActivity() {
+class FormProfile : BaseActivity() {
+    var btnSave: Button? = null
+    var et_username:EditText? = null
+    var et_birth :EditText? = null
+    var et_expertise :EditText? = null
+    var et_skill :EditText? = null
+    var et_summary :EditText? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_form_profile)
+        setContentView(layoutId())
+        findView()
+        initListener()
+    }
 
-        val btnSave = findViewById<Button>(R.id.btn_login)
+    override fun layoutId(): Int {
+        return R.layout.activity_form_profile
+    }
 
-        val et_username = findViewById<EditText>(R.id.et_fullname)
-        val et_birth = findViewById<EditText>(R.id.et_birth)
-        val et_expertise = findViewById<EditText>(R.id.et_expertise)
-        val et_skill = findViewById<EditText>(R.id.et_skill)
-        val et_summary = findViewById<EditText>(R.id.et_summary)
+    override fun findView() {
+        btnSave = findViewById(R.id.btn_login)
+        et_username = findViewById(R.id.et_fullname)
+        et_birth = findViewById(R.id.et_birth)
+        et_expertise = findViewById(R.id.et_expertise)
+        et_skill = findViewById(R.id.et_skill)
+        et_summary = findViewById(R.id.et_summary)
+    }
 
-        btnSave.setOnClickListener{
-            val usernameEt = et_username.text.toString()
-            val birthEt = et_birth.text
-            val expertiseEt = et_expertise.text.toString()
-            val skillEt = et_skill.text.toString()
-            val summaryEt = et_summary.text.toString()
+    override fun initListener() {
+        btnSave?.setOnClickListener{
+            val usernameEt = et_username?.text.toString()
+            val birthEt = et_birth?.text
+            val expertiseEt = et_expertise?.text.toString()
+            val skillEt = et_skill?.text.toString()
+            val summaryEt = et_summary?.text.toString()
 
-            val intentSave = Intent(this, ProfileScreen::class.java)
-            intentSave.putExtra("username", "$usernameEt")
-            intentSave.putExtra("birth", "$birthEt")
-            intentSave.putExtra("expertise", "$expertiseEt")
-            intentSave.putExtra("skill", "$skillEt")
-            intentSave.putExtra("summary", "$summaryEt")
-            startActivity(intentSave)
+            Intent<ProfileScreen>(this)
+            put("username", usernameEt)
+            put("birth", birthEt.toString())
+            put("expertise", expertiseEt)
+            put("skill", skillEt)
+            put("summary", summaryEt)
+            startActivity(start)
         }
     }
 }
