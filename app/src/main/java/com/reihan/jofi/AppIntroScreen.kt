@@ -1,20 +1,27 @@
 package com.reihan.jofi
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.reihan.jofi.databinding.ActivityOnBoardBinding
+import com.reihan.jofi.utils.sharedpreferences.Constants
+import com.reihan.jofi.utils.sharedpreferences.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_on_board.*
 
 class AppIntroScreen : BaseActivity(), View.OnClickListener {
 
+    private lateinit var binding: ActivityOnBoardBinding
+    lateinit var sharedPref: PreferenceHelper
     val mResources = intArrayOf(R.drawable.regis, R.drawable.hire, R.drawable.work)
     lateinit var adapter: SlidingPagerAdapter
     var currentTab = 0
@@ -26,8 +33,7 @@ class AppIntroScreen : BaseActivity(), View.OnClickListener {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId())
-
+        binding = DataBindingUtil.setContentView(this, layoutId())
 
         tabCount = mResources.size
         adapter = SlidingPagerAdapter(supportFragmentManager, mResources)
@@ -108,6 +114,14 @@ class AppIntroScreen : BaseActivity(), View.OnClickListener {
                     // Proceed to Main/Home Activity of the App
                 }
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        sharedPref = PreferenceHelper(this)
+        if(sharedPref.getBoolean(Constants.PREF_IS_LOGIN)==true){
+            IntentStart<MainActivity>(this)
         }
     }
 }

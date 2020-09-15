@@ -25,4 +25,11 @@
     <string name="title1">Register \nYour Account</string>
     <string name="title2">Hire The Workers</string>
     <string name="title3">Let’s Working for togetherness</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+
+    <array name="title_recycler_project">
+        <item></item>
+    </array>
 </resources>

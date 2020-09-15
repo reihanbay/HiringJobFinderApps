@@ -19,7 +19,11 @@ abstract class BaseActivity : AppCompatActivity() {
     //Intent
     var start:Intent? = null
     inline fun <reified ClassActivity>Intent(context: Context) {
-         start = Intent(context,ClassActivity::class.java)
+        start = Intent(context,ClassActivity::class.java)
+    }
+    inline fun <reified ClassActivity>IntentStart(context: Context) {
+        start = Intent(context,ClassActivity::class.java)
+        startActivity(start)
     }
     open fun put(name: String, value: String){
         start?.putExtra(name, value)
